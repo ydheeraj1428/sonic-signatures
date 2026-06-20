@@ -52,10 +52,10 @@ with st.sidebar:
 
     if os.path.exists("songs"):
 
-    total_songs = len([
-        f for f in os.listdir("songs")
-        if f.endswith(".mp3")
-    ])
+        total_songs = len([
+            f for f in os.listdir("songs")
+            if f.endswith(".mp3")
+        ])
 
     else:
 
