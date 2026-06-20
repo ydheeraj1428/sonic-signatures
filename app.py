@@ -50,10 +50,16 @@ with st.sidebar:
 
     st.markdown("---")
 
+    if os.path.exists("songs"):
+
     total_songs = len([
         f for f in os.listdir("songs")
         if f.endswith(".mp3")
     ])
+
+    else:
+
+        total_songs = 0
 
     db_size = round(
         os.path.getsize(
@@ -209,12 +215,16 @@ with tab2:
         "Indexed Music Library"
     )
 
+    if os.path.exists("songs"):
+
     songs = sorted([
-        f for f in os.listdir(
-            "songs"
-        )
+        f for f in os.listdir("songs")
         if f.endswith(".mp3")
     ])
+
+else:
+
+    songs = []
 
     col1, col2 = st.columns(2)
 
