@@ -1,0 +1,7 @@
+streamlit
+numpy==1.26.4
+pandas
+scipy
+matplotlib
+librosa==0.10.2.post1
+soundfile
