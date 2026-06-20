@@ -217,12 +217,12 @@ with tab2:
 
     if os.path.exists("songs"):
 
-    songs = sorted([
-        f for f in os.listdir("songs")
-        if f.endswith(".mp3")
-    ])
+        songs = sorted([
+            f for f in os.listdir("songs")
+            if f.endswith(".mp3")
+        ])
 
-else:
+    else:
 
     songs = []
 
