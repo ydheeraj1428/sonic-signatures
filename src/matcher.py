@@ -66,5 +66,6 @@ class SongMatcher:
         return {
             "song": song_name,
             "score": score
+            "offsets": offsets
         }
 
