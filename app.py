@@ -5,11 +5,14 @@ import os
 import time
 import pandas as pd
 
+
+
 from src.matcher import SongMatcher
 from src.fingerprint import fingerprint_song
 from src.visualizer import (
     plot_spectrogram,
-    plot_constellation
+    plot_constellation,
+    plot_offsets
 )
 
 st.set_page_config(
@@ -143,6 +146,29 @@ with tab1:
                 temp_path
             )
 
+
+
+
+        st.success(
+            f"Matched Song: {prediction['song']}"
+        )
+
+        st.metric(
+            "Match Score",
+            prediction["score"]
+        )
+
+        st.subheader(
+            "Offset Match Histogram"
+        )
+
+        fig3 = plot_offsets(
+            prediction["offsets"]
+        )
+
+        if fig3:
+            st.pyplot(fig3)
+            
         end = time.time()
 
         st.markdown("---")
