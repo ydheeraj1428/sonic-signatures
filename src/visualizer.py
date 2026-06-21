@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import librosa
 import librosa.display
 import numpy as np
+import matplotlib.pyplot as plt
+from collections import Counter
 
 
 def plot_spectrogram(spec, title="Spectrogram"):
@@ -73,6 +75,47 @@ def plot_offset_histogram(
 
     ax.set_ylabel(
         "Count"
+    )
+
+    return fig
+
+
+def plot_offsets(offset_counter):
+
+    top_offsets = offset_counter.most_common(50)
+
+    if len(top_offsets) == 0:
+        return None
+
+    labels = [
+        str(item[0][1])
+        for item in top_offsets
+    ]
+
+    values = [
+        item[1]
+        for item in top_offsets
+    ]
+
+    fig, ax = plt.subplots(
+        figsize=(8,4)
+    )
+
+    ax.bar(
+        range(len(values)),
+        values
+    )
+
+    ax.set_title(
+        "Offset Match Histogram"
+    )
+
+    ax.set_xlabel(
+        "Offset Difference"
+    )
+
+    ax.set_ylabel(
+        "Votes"
     )
 
     return fig
